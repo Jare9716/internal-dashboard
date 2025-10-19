@@ -1,7 +1,7 @@
 "use client";
 import { Grid, Box } from "@mui/material";
 
-import { SalesOverview } from "@/components/features";
+import { SalesOverview, MonthlyEarnings } from "@/components/features";
 
 function Dashboard() {
 	return (
@@ -14,6 +14,18 @@ function Dashboard() {
 					}}
 				>
 					<SalesOverview />
+				</Grid>
+				<Grid
+					size={{
+						xs: 12,
+						lg: 4,
+					}}
+				>
+					<Grid container spacing={3}>
+						<Grid size={12}>
+							<MonthlyEarnings />
+						</Grid>
+					</Grid>
 				</Grid>
 			</Grid>
 		</Box>
