@@ -30,7 +30,7 @@ export function SalesOverview() {
 				options={optionscolumnchart}
 				series={seriescolumnchart}
 				type="bar"
-				height={370}
+				height={400}
 				width={"100%"}
 			/>
 		</DashboardCard>
