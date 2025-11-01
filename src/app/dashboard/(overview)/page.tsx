@@ -5,6 +5,7 @@ import {
 	SalesOverview,
 	MonthlyEarnings,
 	RecentTransactions,
+	YearlyBreakup,
 } from "@/components/features";
 
 function Dashboard() {
@@ -25,7 +26,14 @@ function Dashboard() {
 						lg: 4,
 					}}
 				>
-					<RecentTransactions />
+					<Grid container spacing={3}>
+						<Grid size={12}>
+							<YearlyBreakup />
+						</Grid>
+						<Grid size={12}>
+							<MonthlyEarnings />
+						</Grid>
+					</Grid>
 				</Grid>
 				<Grid
 					size={{
@@ -33,11 +41,7 @@ function Dashboard() {
 						lg: 4,
 					}}
 				>
-					<Grid container spacing={3}>
-						<Grid size={12}>
-							<MonthlyEarnings />
-						</Grid>
-					</Grid>
+					<RecentTransactions />
 				</Grid>
 			</Grid>
 		</Box>

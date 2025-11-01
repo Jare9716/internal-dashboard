@@ -9,7 +9,6 @@ export function chartOptions() {
 			toolbar: {
 				show: false,
 			},
-			height: 60,
 			sparkline: {
 				enabled: true,
 			},

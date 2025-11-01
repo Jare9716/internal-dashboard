@@ -17,7 +17,7 @@ export function RecentTransactions() {
 					[`& .${timelineOppositeContentClasses.root}`]: {
 						flex: 0.5,
 					},
-					height: 415,
+					padding: 0,
 				}}
 			>
 				<RecenTransactionItem />
