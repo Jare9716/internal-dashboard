@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useTheme } from "@mui/material/styles";
-import { Stack, Typography, Avatar, Grid } from "@mui/material";
+import { Stack, Typography, Avatar } from "@mui/material";
 import { ArrowDownRightIcon } from "@heroicons/react/24/outline";
 
 import { chartOptions } from "./helper";
