@@ -6,6 +6,7 @@ import {
 	MonthlyEarnings,
 	RecentTransactions,
 	YearlyBreakup,
+	ClientAcquisition,
 } from "@/components/features";
 
 function Dashboard() {
@@ -42,6 +43,14 @@ function Dashboard() {
 					}}
 				>
 					<RecentTransactions />
+				</Grid>
+				<Grid
+					size={{
+						xs: 12,
+						lg: 8,
+					}}
+				>
+					<ClientAcquisition />
 				</Grid>
 			</Grid>
 		</Box>

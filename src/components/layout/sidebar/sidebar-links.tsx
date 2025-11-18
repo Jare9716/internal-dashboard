@@ -2,15 +2,18 @@
 import {
 	UserGroupIcon,
 	HomeIcon,
+	ArrowTrendingUpIcon,
 	DocumentDuplicateIcon,
 } from "@heroicons/react/24/outline";
 
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import Link from "next/link";
+import { Icon } from "@mui/material";
 
 const links = [
 	{ name: "Home", href: "/dashboard", icon: HomeIcon },
+	// { name: "Analytics", href: "/analytics", icon: ArrowTrendingUpIcon }
 	// {
 	// 	name: "Invoices",
 	// 	href: "/dashboard/invoices",
