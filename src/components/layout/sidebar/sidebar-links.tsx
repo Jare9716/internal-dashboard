@@ -1,15 +1,15 @@
 "use client";
 import {
-	UserGroupIcon,
+	// UserGroupIcon,
 	HomeIcon,
-	ArrowTrendingUpIcon,
-	DocumentDuplicateIcon,
+	// ArrowTrendingUpIcon,
+	// DocumentDuplicateIcon,
 } from "@heroicons/react/24/outline";
 
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import Link from "next/link";
-import { Icon } from "@mui/material";
+// import { Icon } from "@mui/material";
 
 const links = [
 	{ name: "Home", href: "/dashboard", icon: HomeIcon },
