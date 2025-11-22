@@ -4,11 +4,9 @@ import { useState, useEffect } from "react";
 import { Box, Stack, Typography, Avatar, Select, MenuItem, SelectChangeEvent } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { UserGroupIcon } from "@heroicons/react/24/outline";
-
 import { DashboardCard } from "@/components/features/dashboard/dashboardCard/dashboardCard";
 import { Chart } from "@/components/ui";
-
-import { clientAcquisitionData } from "./mockup";
+import { clientAcquisitionData } from "@/components/features/dashboard/clientAcquisition/mockup";
 import { getClientYears, getDataForYear, buildClientAcquisitionChartConfig } from "@/components/features/dashboard/clientAcquisition/helper";
 
 export function ClientAcquisition() {
