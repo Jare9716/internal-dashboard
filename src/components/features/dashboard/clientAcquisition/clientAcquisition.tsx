@@ -1,23 +1,55 @@
 "use client";
 
-import React from "react";
-import { Box, Stack, Typography, Avatar, Select, MenuItem } from "@mui/material";
+import { useState, useEffect } from "react";
+import { Box, Stack, Typography, Avatar, Select, MenuItem, SelectChangeEvent } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { UserGroupIcon } from "@heroicons/react/24/outline";
 
-import { DashboardCard } from "../dashboardCard/dashboardCard";
+import { DashboardCard } from "@/components/features/dashboard/dashboardCard/dashboardCard";
 import { Chart } from "@/components/ui";
-import { useClientAcquisition } from "@/components/features/dashboard/clientAcquisition/hooks/useClientAcquisition";
+
+import { clientAcquisitionData } from "./mockup";
+import { getClientYears, getDataForYear, buildClientAcquisitionChartConfig } from "@/components/features/dashboard/clientAcquisition/helper";
 
 export function ClientAcquisition() {
-    const {
-        years,
-        selectedYear,
-        totalClientsDynamic,
-        optionsColumnChart,
-        seriesColumnChart,
-        avatarBgColor,
-        handleChangeYear,
-    } = useClientAcquisition();
+    const theme = useTheme();
+    const primaryColor = theme.palette.primary.main;
+    const secondaryColor = theme.palette.success.main;
+
+    const [selectedYear, setSelectedYear] = useState("2025");
+    const [totalClientsDynamic, setTotalClientsDynamic] = useState(0);
+
+    const totalClients: number = clientAcquisitionData["total"];
+    const years = getClientYears(clientAcquisitionData);
+    const dataForYear = getDataForYear(clientAcquisitionData, selectedYear);
+
+    const { optionsColumnChart, seriesColumnChart } =
+        buildClientAcquisitionChartConfig({
+            primaryColor,
+            secondaryColor,
+            selectedYear,
+            dataForYear,
+        });
+
+    const handleChangeYear = (event: SelectChangeEvent<string>) => {
+        setSelectedYear(event.target.value);
+    };
+
+    useEffect(() => {
+        const duration = 800;
+        const start = performance.now();
+
+        const animate = (time: number) => {
+            const progress = Math.min((time - start) / duration, 1);
+            const current = Math.floor(totalClients * progress);
+            setTotalClientsDynamic(current);
+
+            if (progress < 1) requestAnimationFrame(animate);
+        };
+
+        const id = requestAnimationFrame(animate);
+        return () => cancelAnimationFrame(id);
+    }, [totalClients]);
 
     return (
         <DashboardCard
@@ -46,7 +78,7 @@ export function ClientAcquisition() {
 
                 <Avatar
                     sx={{
-                        bgcolor: avatarBgColor,
+                        bgcolor: theme.palette.success.dark,
                         width: 45,
                         height: 45,
                         boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
