@@ -1,27 +1,36 @@
 import React from "react";
 
 import { Timeline, timelineOppositeContentClasses } from "@mui/lab";
+import { Box } from "@mui/material";
+
 
 import { DashboardCard } from "../dashboardCard/dashboardCard";
 import { RecenTransactionItem } from "./recentTransactionItem";
 
 export function RecentTransactions() {
-	return (
+    return (
 		<DashboardCard title="Recent Transactions">
-			<Timeline
+			<Box
 				sx={{
-					"& .MuiTimelineConnector-root": {
-						width: "1px",
-						backgroundColor: "divider",
-					},
-					[`& .${timelineOppositeContentClasses.root}`]: {
-						flex: 0.5,
-					},
-					padding: 0,
+					maxHeight: 380,
+					overflowY: "auto",
 				}}
 			>
-				<RecenTransactionItem />
-			</Timeline>
+				<Timeline
+					sx={{
+						"& .MuiTimelineConnector-root": {
+							width: "1px",
+							backgroundColor: "divider",
+						},
+						[`& .${timelineOppositeContentClasses.root}`]: {
+							flex: 0.5,
+						},
+						padding: 0,
+					}}
+				>
+					<RecenTransactionItem />
+				</Timeline>
+			</Box>
 		</DashboardCard>
 	);
 }
