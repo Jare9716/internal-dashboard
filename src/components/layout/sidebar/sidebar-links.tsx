@@ -3,6 +3,7 @@ import {
 	// UserGroupIcon,
 	HomeIcon,
 	UsersIcon,
+	ChartBarIcon
 	// ArrowTrendingUpIcon,
 	// DocumentDuplicateIcon
 } from "@heroicons/react/24/outline";
@@ -14,8 +15,8 @@ import Link from "next/link";
 
 const links = [
 	{ name: "Home", href: "/dashboard", icon: HomeIcon },
-	{ name: "Clients", href: "/dashboard/clients", icon: UsersIcon }
-	// { name: "Analytics", href: "/dashboard/analytics", icon: ArrowTrendingUpIcon }
+	{ name: "Clients", href: "/dashboard/clients", icon: UsersIcon },
+	{ name: "Usage", href: "/dashboard/usage", icon: ChartBarIcon }
 	// {
 	// 	name: "Invoices",
 	// 	href: "/dashboard/invoices",
