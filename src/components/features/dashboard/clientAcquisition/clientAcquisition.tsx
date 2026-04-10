@@ -64,48 +64,45 @@ export function ClientAcquisition() {
                 </Box>
             }
         >
-            <Stack
-                direction="row"
-                spacing={2}
-                alignItems="center"
-                justifyContent="flex-end"
-            >
-                <Typography variant="h2" fontWeight={700}>
-                    {totalClientsDynamic}
-                </Typography>
-
-                <Avatar
-                    sx={{
-                        bgcolor: theme.palette.success.dark,
-                        width: 45,
-                        height: 45,
-                        boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
-                    }}
+            <Box height={120} display="flex" alignItems="center">
+                <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    width="100%"
                 >
-                    <UserGroupIcon width={26} strokeWidth={1.2} />
-                </Avatar>
-            </Stack>
+                    <Select
+                        value={selectedYear}
+                        onChange={handleChangeYear}
+                        size="small"
+                        sx={{ minWidth: 120 }}
+                    >
+                        {years.map((year) => (
+                            <MenuItem key={year} value={year}>
+                                {year}
+                            </MenuItem>
+                        ))}
+                    </Select>
 
-            <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent="space-between"
-                mt="-8px"
-                mb={1}
-            >
-                <Select
-                    value={selectedYear}
-                    onChange={handleChangeYear}
-                    size="small"
-                    sx={{ minWidth: 90, fontSize: 14 }}
-                >
-                    {years.map((year) => (
-                        <MenuItem key={year} value={year}>
-                            {year}
-                        </MenuItem>
-                    ))}
-                </Select>
-            </Stack>
+                    {/* RIGHT */}
+                    <Stack direction="row" spacing={2} alignItems="center">
+                        <Typography variant="h2" fontWeight={700}>
+                            {totalClientsDynamic}
+                        </Typography>
+
+                        <Avatar
+                            sx={{
+                                bgcolor: theme.palette.success.dark,
+                                width: 45,
+                                height: 45,
+                            }}
+                        >
+                            <UserGroupIcon width={26} strokeWidth={1.2} />
+                        </Avatar>
+                    </Stack>
+                </Stack>
+                </Box>
+            
         </DashboardCard>
     );
 }

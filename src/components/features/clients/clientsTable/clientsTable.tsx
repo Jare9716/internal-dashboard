@@ -1,7 +1,8 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useTheme } from "@mui/material/styles";
-import { PencilSquareIcon } from "@heroicons/react/24/outline";
+import { EyeIcon } from "@heroicons/react/24/outline";
 import {
     Table,
     TableBody,
@@ -17,8 +18,10 @@ import {
 import { ClientsTableProps } from "@/models/types/clients/clientsTable";
 
 
-export function ClientsTable({ clients, onEditClient }: ClientsTableProps) {
-    const theme = useTheme()
+export function ClientsTable({ clients }: ClientsTableProps) {
+    const theme = useTheme();
+    const router = useRouter();
+
     return (
         <TableContainer component={Paper} elevation={1}>
             <Table size="small">
@@ -105,7 +108,11 @@ export function ClientsTable({ clients, onEditClient }: ClientsTableProps) {
                                 <Button
                                     variant="text"
                                     size="small"
-                                    onClick={() => onEditClient(client)}
+                                    onClick={() =>
+                                        router.push(
+                                            `/dashboard/clients/${client.id}`
+                                        )
+                                    }
                                     sx={{
                                         width: 30,
                                         height: 30,
@@ -115,23 +122,14 @@ export function ClientsTable({ clients, onEditClient }: ClientsTableProps) {
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
-
                                         color: theme.palette.primary.dark,
-                                        backgroundColor: "transparent",
-
-                                        "& svg": {
-                                            width: 20,
-                                            height: 20,
-                                            strokeWidth: 2,
-                                        },
-
                                         "&:hover": {
-                                            backgroundColor: theme.palette.primary.light,
-                                            color: theme.palette.primary.main,
+                                            backgroundColor:
+                                                theme.palette.primary.light,
                                         },
                                     }}
                                 >
-                                    <PencilSquareIcon />
+                                    <EyeIcon width={20} />
                                 </Button>
                             </TableCell>
                         </TableRow>
